@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import requests
 import datetime as dt
 import json
@@ -35,7 +36,7 @@ d =  {
         'tc': d['WeatherForecasts'][0]['forecasts'][0]['data']['tc'],
         'rain': d['WeatherForecasts'][0]['forecasts'][0]['data']['rain']
     }
-df_out = pd.read_csv('tmd_hourly.csv')
+df_out = pd.read_csv('/home/best/tmd/tmd_hourly.csv')
 df_out = df_out.drop(columns=['Unnamed: 0'])
 df_out.loc[len(df_out)]=['BKK',d['time'],d['tc'],d['rh'],d['rain']]
-df_out.to_csv('test.csv')
+df_out.to_csv('/home/best/tmd/tmd_hourly.csv')
